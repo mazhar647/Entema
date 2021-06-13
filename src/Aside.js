@@ -20,17 +20,8 @@ import {RiUserSettingsFill} from 'react-icons/ri';
 import {BiPurchaseTag} from 'react-icons/bi';
 import {BsBlockquoteRight} from 'react-icons/bs'
 import {GoCalendar} from 'react-icons/go'
-const Aside = ({ image,  rtl }) => {
+const Aside = ({ image,  collapsed, rtl, toggled, handleToggleSidebar  }) => {
 
-  const [collapsed, setCollapsed] = useState(false);
-  const [toggled, setToggled] = useState(false);
-  
-  const handleCollapsedChange = (checked) => {
-    setCollapsed(checked);
-};
-  const handleToggleSidebar = (value) => {
-    setToggled(value);
-  };
   
 
   const intl = useIntl();
@@ -46,19 +37,7 @@ const Aside = ({ image,  rtl }) => {
       onToggle={handleToggleSidebar}
   
     >
-    <div className="tooltip"   style={{marginLeft:'27px'}}>
-
-    <Switch
-      height={16}
-      width={30}
-      checkedIcon={false}
-      uncheckedIcon={false}
-      onChange={handleCollapsedChange}
-      checked={collapsed}
-      onColor="#219de9"
-      offColor="#bbbbbb"/>
-      
-    </div>
+   
   
 
       <SidebarContent>

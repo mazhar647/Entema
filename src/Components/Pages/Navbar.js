@@ -2,16 +2,16 @@ import React, {useState} from 'react';
 import { useIntl } from 'react-intl';
 import Switch from 'react-switch';
 
+import {  FaBars } from 'react-icons/fa';
 
-const Navbar = ({ }) => {
-
-
-
-
+const Navbar = ({collapsed,handleCollapsedChange}) => {
+  const intl = useIntl();
 
 
 
 
+
+  
 
 
 
@@ -30,11 +30,19 @@ const Navbar = ({ }) => {
 return (
     <div>
   
-    <nav class="navbar navbar-expand-lg "
-
-    style={{paddingTop:'30px',height:'35px'}}
->
-  
+    <nav class="navbar navbar-expand-lg "style={{paddingTop:'60px',height:'35px'}}>  
+    <div style={{marginBottom:'70px'}}>
+    <Switch 
+     height={16}
+    width={30}
+    checkedIcon={false}
+    uncheckedIcon={false}
+    onChange={handleCollapsedChange}
+    checked={collapsed}
+    onColor="#219de9"
+    offColor="#bbbbbb"
+    cursor="pointer"/>
+</div>
     <div
       style={{
         padding: '2px',

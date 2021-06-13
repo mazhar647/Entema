@@ -3,7 +3,7 @@ import Aside from './Aside';
 import Dashboard from './Components/Dashboard';
 import Login from './Components/Login'
 import Main from './Main';
-import { Switch, Route,Router } from "react-router-dom";
+
 import Routes from './Routes';
 import Navbar from './Components/Pages/Navbar';
 
@@ -30,7 +30,14 @@ function Layout({ setLocale }) {
   };
 
   return (<>
-    <Navbar/>
+    <Navbar 
+    toggled={toggled}
+    collapsed={collapsed}
+   
+   
+    handleCollapsedChange={handleCollapsedChange}
+   />
+
     <div className={`app ${rtl ? 'rtl' : ''} ${toggled ? 'toggled' : ''}`}>
       <Aside
         image={image}

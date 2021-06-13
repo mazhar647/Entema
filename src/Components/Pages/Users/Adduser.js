@@ -1,70 +1,141 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Adduser.css';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+
 function Adduser() {
+
+    const [ userName, setUserName] = useState();
+    const [ userFname, setUserFname] = useState();
+    const [ userEmail, setUserEmail] = useState();
+    const [ userPwd, setUserPwd] = useState();
+    const [ userCpwd, setUserCpwd] = useState();
+    const [ userPhone, setUserPhone] = useState();
+    const [ userDesignation, setUserDesignation] = useState();
+    const [ userRole, setUserRole] = useState();
+    const [ userStatus, setUserStatus] = useState();
+    const [ userActdate, setUserActdate] = useState();
+    const [ userDactdate, setUserDactdate] = useState();
+
+        
+
+
+
+    const handleSubmit = (event) => {
+        console.log('event : ',event.target[0].id);
+        console.log('event : ',event.target[0].value);
+        event.preventDefault();
+
+        const formData = {
+            userName  : userName,
+            userFname : userFname,
+            userEmail : userEmail,
+            userPwd : userPwd,
+            userCpwd : userCpwd,
+            userPhone : userPhone,
+            userDesignation : userDesignation,
+            userRole : userRole,
+            userStatus : userStatus,
+            userActdate : userActdate,
+            userDactdate : userDactdate
+        }
+
+        if ( userPwd == userCpwd){
+            alert('Hello');
+        }else if ( userPwd != userCpwd){
+            alert('your password doesnot match');
+            return false;
+        }
+
+        console.log('formData : ',formData);
+
+    }
+
+    const handleChangeEvent = (e) => {
+        console.log('e.target.name : ', e.target.value);
+        // return (e.target.name = e.target.value);
+       
+        const input = e.target.name
+
+        if(input == "userName"){
+            setUserName(e.target.value)
+        } else if(input === "userFname"){
+            setUserFname(e.target.value)
+        } else if(input === "userEmail"){
+            setUserEmail(e.target.value)
+        } else if(input === "userPwd"){
+            setUserPwd(e.target.value)
+        } else if(input === "userCpwd"){
+            setUserCpwd(e.target.value)
+        } else if(input === "userPhone"){
+            setUserPhone(e.target.value)
+        } else if(input === "userDesignation"){
+            setUserDesignation(e.target.value)
+        } else if(input === "userRole"){
+            setUserRole(e.target.value)
+        } else if(input === "userStatus"){
+            setUserStatus(e.target.value)
+        } else if(input === "userActdate"){
+            setUserActdate(e.target.value)
+        } else if(input === "userDactdate"){
+            setUserDactdate(e.target.value)
+        }
+    }
 
     return (
         <>
-            <div class="container" style={{ paddingTop: '30px', paddingLeft: '50px', backgroundColor: "whitesmoke" }}>
+            <div class="container" style={{ paddingTop: '30px', paddingLeft: '50px' }}>
                 <div className="heading-layout1">
                     <div className="item-title">
                         <h3 style={{ padding: "50px" }}>Add User</h3>
                     </div>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">User name</label>
-                            <input type="text" class="form-control is-valid" id="validationServer013" placeholder="First name"
-                                value="mark" required />
+                            <label for="userName">User name</label>
+                            <input type="text" class="form-control is-valid" id="userName" name="userName" onChange={handleChangeEvent} required/>
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">Full Name</label>
-                            <input type="text" class="form-control is-valid" id="validationServer013" placeholder="First name"
-                                value="" required />
-                        </div><div class="col-md-4 mb-3">
-                            <label for="validationServer013">User Email</label>
-                            <input type="text" class="form-control is-valid" id="validationServer013" placeholder=""
-                                value="mark" required />
+                            <label for="userFname">Full Name</label>
+                            <input type="text" class="form-control is-valid" id="userFname" name="userFname" onChange={handleChangeEvent} required/>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="userEmail">User Email</label>
+                            <input type="text" class="form-control is-valid" id="userEmail" name="userEmail" onChange={handleChangeEvent} required/>
                         </div>
                     </div>
                     <div className="row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">Password</label>
-                            <input type="text" class="form-control is-valid" id="validationServer013" placeholder="First name"
-                                value="" required />
+                            <label for="userPwd">Password</label>
+                            <input type="password" class="form-control is-valid" id="userPwd" name="userPwd" onChange={handleChangeEvent} required />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">Confirm Password</label>
-                            <input type="text" class="form-control is-valid" id="validationServer013" placeholder="First name"
-                                value="Mark" required />
+                            <label for="userCpwd">Confirm Password</label>
+                            <input type="password" class="form-control is-valid" id="userCpwd" name="userCpwd" onChange={handleChangeEvent} required />  
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">Phone</label>
-                            <input type="text" class="form-control is-valid" id="validationServer013" placeholder="First name"
-                                value="" required />
+                            <label for="userPhone">Phone</label>
+                            <input type="text" class="form-control is-valid" id="userPhone" name="userPhone" onChange={handleChangeEvent} required />
                         </div>
                     </div>
                     <div className="row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">Designation</label>
-                            <input type="text" class="form-control is-valid" id="validationServer013" placeholder="First name"
-                                value="mark" required />
+                            <label for="userDesignation">Designation</label>
+                            <input type="text" class="form-control is-valid" id="userDesignation" name="userDesignation" onChange={handleChangeEvent} required />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">Role</label>
-                            <select class="custom-select" required>
+                            <label for="userRole">Role</label>
+                            <select class="form-control is-valid" id="userRole" name="userRole" onChange={handleChangeEvent} required>
                                 <option value="">Select Role</option>
                                 <option value="1">Admin</option>
                                 <option value="2">Operator</option>
-
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer013">Status</label>
-                            <select class="custom-select" required>
+                            <label for="userStatus">Status</label>
+                            <select class="form-control is-valid" id="userStatus" name="userStatus" onChange={handleChangeEvent} required>
                                 <option value="">select Status</option>
                                 <option value="1">Active</option>
                                 <option value="2">InActive</option>
@@ -75,20 +146,18 @@ function Adduser() {
                     <div className="row">
                         <div class="col-md-4 mb-3">
 
-                            <label for="validationServer013">Active Date</label>
-                            <input type="date" class="form-control is-valid"
-                                value="" required />
+                            <label for="userActdate">Activation Date</label>
+                            <input type="date" class="form-control is-valid" id="userActdate" name="userActdate" onChange={handleChangeEvent} required />
                         </div>
                         <div class="col-md-4 mb-3">
 
-                            <label for="validationServer013">Dactive Date</label>
-                            <input type="date" class="form-control is-valid"
-                                value="" required />
+                            <label for="userDactdate">Deactivation Date</label>
+                            <input type="date" class="form-control is-valid" id="userDactdate" name="userDactdate" onChange={handleChangeEvent} required />
                         </div>
                     </div>
                     <div>
 
-                        <button type="button" class="btn btn-outline-success">Submit</button>
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
                     </div>
 </form>
 </div>
