@@ -295,3 +295,7 @@ width:290px
     color: rgb(51, 51, 51);
     box-sizing: border-box;
 } */
+.textarea{
+    white-space: break-spaces;
+
+}
